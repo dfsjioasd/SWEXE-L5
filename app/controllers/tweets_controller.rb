@@ -16,10 +16,20 @@ class TweetsController < ApplicationController
   def destroy
     tweets = Tweet.find(params[:id])
     tweets.destroy
-    redirect_to
+    redirect_to '/'
   end
   
   def show
-    print a
+    @tweets = Tweet.find(params[:id])
+  end
+  
+  def edit
+    @tweets = Tweet.find(params[:id])
+  end
+  
+  def update
+    tweets = Tweet.find(params[:id])
+    tweets.update(message: params[:tweet][:message], tdate: params[:tweet][:tdate])
+    redirect_to '/'
   end
 end
