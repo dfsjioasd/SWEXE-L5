@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
   end
   
   def create
-    if params[:tweet][:file] == none
+    if params[:tweet][:file] == None
       redirect_to '/'
       return
     end
