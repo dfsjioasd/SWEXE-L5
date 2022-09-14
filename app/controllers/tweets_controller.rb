@@ -20,5 +20,6 @@ class TweetsController < ApplicationController
   end
   
   def show
+    print a
   end
 end
