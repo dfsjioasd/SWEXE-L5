@@ -3,13 +3,7 @@
 <% end %>
 <% @tweets.each do |tweet| %>
     <%= tweet.message %>
-    <% if Time.current - tweet.tdate < 60 %>
-        <%= (Time.current - tweet.tdate).floor %>秒前
-    <% elsif Time.current - tweet.tdate < 3600 %>
-        <%= ((Time.current - tweet.tdate)/60).floor %>分前
-    <% else %>
-        <%= ((Time.current - tweet.tdate)/3600).floor %>分前
-    <% end %>
+　　<%= ((Time.current - tweet.tdate)/60).floor %>分前
     <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
     <%= link_to '表示', "/tweets/#{tweet.id}" %>
     <%= link_to '編集', "/tweets/edit/#{tweet.id}" %><br>

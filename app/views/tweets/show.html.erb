@@ -2,12 +2,7 @@
 <%= @tweets.message %></p>
 
 <p><strong>時間</strong>
-<% if Time.current - @tweets.tdate < 60 %>
-    <%= (Time.current - @tweets.tdate).floor %>秒前
-<% elsif Time.current - @tweets.tdate < 3600 %>
-    <%= ((Time.current - @tweets.tdate)/60).floor %>分前
-<% else %>
-    <%= ((Time.current - @tweets.tdate)/3600).floor %>分前
-<% end %></p>
+<%= ((Time.current - @tweets.tdate)/60).floor %>分前
+</p>
 
 <%= link_to 'back', '/' %>
