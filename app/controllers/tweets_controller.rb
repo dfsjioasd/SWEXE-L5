@@ -40,9 +40,13 @@ class TweetsController < ApplicationController
     if params[:tweet][:file] == nil
       if tweets.update(message: params[:tweet][:message], tdate: Time.current, file: nil)
         redirect_to '/'
+      else
+        render 'edit'
       end
     else
       if tweets.update(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
+        redirect_to '/'
+      else
         render 'edit'
       end
     end
