@@ -18,4 +18,7 @@ class TweetsController < ApplicationController
     tweets.destroy
     redirect_to
   end
+  
+  def show
+  end
 end
