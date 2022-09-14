@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+begin
+  load File.expand_path('../spring', __FILE__)
+rescue LoadError => e
+  raise unless e.message.include?('spring')
+end
+APP_PATH = File.expand_path('../config/application', __dir__)
+
+#----------------------------------------
+if ARGV.first == "s" or ARGV.first == "server"
+  SCRIPT = 'script'
+  if ! File.exists?(SCRIPT)
+
+    LOG_PATH = File.expand_path('../log', __dir__)
+
+script=<<EOS
+#!/bin/sh
+cd #{LOG_PATH}
+auto_commit() {
+  while read i
+  do
+    echo $i | grep --line-buffered -E "Error|Completed 200" | grep -v "Completed 500 Internal Server" > /dev/null 2>&1
+    if [ $? = "0" ];then
+      git add -A > /dev/null 2>&1
+      git commit -qm "$i" > /dev/null 2>&1
+    fi
+  done
+}
+touch development.log
+tail -n 0 -F development.log | auto_commit
+EOS
+
+    #スクリプトファイルを書き込む
+    open( LOG_PATH + '/' + SCRIPT, 'w') do |file|
+      file.puts script
+    end
+  end
+
+  #スクリプトファイル・スレッド実行(rails sが停止するとスレッドも停止する)
+  Thread.new do
+    system('sh ' + LOG_PATH + '/' + SCRIPT)
+  end
+  puts "--------"
+
+end
+#----------------------------------------
+
+require_relative '../config/boot'
+require 'rails/commands'
