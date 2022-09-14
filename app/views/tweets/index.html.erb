@@ -2,7 +2,7 @@
   <%= flash[:notice] %>
 <% end %><br>
 <% @tweets.each do |tweet| %>
-    <%= tweet.message %>
+    <%= tweet.message %><br>
     <%= image_tag "/get_image/#{tweet.id}" %>
 　　<%= ((Time.current - tweet.tdate)/60).floor %>分前
     <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
