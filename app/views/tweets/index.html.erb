@@ -6,6 +6,7 @@
         <%= (Time.current - tweet.tdate)/60 %>分前
     <% else %>
         <%= (Time.current - tweet.tdate)/3600 %>分前
+    <% end %>
     <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
     <%= link_to '表示', "/tweets/#{tweet.id}" %>
     <%= link_to '編集', "/tweets/edit/#{tweet.id}" %>
