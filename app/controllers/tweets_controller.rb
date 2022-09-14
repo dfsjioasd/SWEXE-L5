@@ -38,11 +38,14 @@ class TweetsController < ApplicationController
   def update
     tweets = Tweet.find(params[:id])
     if params[:tweet][:file] == nil
-      tweets.update(message: params[:tweet][:message], tdate: Time.current, file: nil)
+      if tweets.update(message: params[:tweet][:message], tdate: Time.current, file: nil)
+        redirect_to '/'
+      end
     else
-      tweets.update(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
+      if tweets.update(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
+        render 'edit'
+      end
     end
-    redirect_to '/'
   end
   
   def get_image
