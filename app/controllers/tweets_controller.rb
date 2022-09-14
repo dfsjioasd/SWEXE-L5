@@ -9,7 +9,8 @@ class TweetsController < ApplicationController
   
   def create
     if params[:tweet][:file] == nil
-      render 'new'
+      flash[:notice] = "画像が入っていません"
+      redirect_to '/'
       return
     end
     @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
@@ -37,6 +38,7 @@ class TweetsController < ApplicationController
   
   def update
     if params[:tweet][:file] == nil
+      flash[:notice] = "画像が入っていません"
       redirect_to '/'
       return
     end
