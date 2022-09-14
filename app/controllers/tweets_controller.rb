@@ -9,11 +9,10 @@ class TweetsController < ApplicationController
   
   def create
     if params[:tweet][:file] == nil
-      flash[:notice] = "画像が入っていません"
-      redirect_to '/'
-      return
+      @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: nil)
+    else
+      @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
     end
-    @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
     if @tweets.save
       flash[:notice] = "ツイートしました"
       redirect_to '/'
@@ -37,13 +36,12 @@ class TweetsController < ApplicationController
   end
   
   def update
-    if params[:tweet][:file] == nil
-      flash[:notice] = "画像が入っていません"
-      redirect_to '/'
-      return
-    end
     tweets = Tweet.find(params[:id])
-    tweets.update(message: params[:tweet][:message], tdate: tweets.tdate, file: params[:tweet][:file].read)
+    if params[:tweet][:file] == nil
+      tweets.update(message: params[:tweet][:message], tdate: Time.current, file: nil)
+    else
+      tweets.update(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
+    end
     redirect_to '/'
   end
   
