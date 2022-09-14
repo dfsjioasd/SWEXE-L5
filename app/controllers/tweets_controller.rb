@@ -9,7 +9,7 @@ class TweetsController < ApplicationController
   
   def create
     if params[:tweet][:file] == nil
-      redirect_to '/'
+      render 'new'
       return
     end
     @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
@@ -36,6 +36,10 @@ class TweetsController < ApplicationController
   end
   
   def update
+    if params[:tweet][:file] == nil
+      redirect_to '/'
+      return
+    end
     tweets = Tweet.find(params[:id])
     tweets.update(message: params[:tweet][:message], tdate: tweets.tdate, file: params[:tweet][:file].read)
     redirect_to '/'
