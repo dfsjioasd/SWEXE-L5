@@ -12,4 +12,10 @@ class TweetsController < ApplicationController
     tweets.save
     redirect_to '/'
   end
+  
+  def destroy
+    tweets = Tweet.find(params[:id])
+    tweets.destroy
+    redirect_to
+  end
 end
