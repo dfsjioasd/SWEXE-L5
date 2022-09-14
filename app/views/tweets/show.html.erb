@@ -1,6 +1,6 @@
 <p><strong>内容</strong>
 <%= @tweets.message %></p>
-<% if tweet.file != nil %>
+<% if @tweets.file != nil %>
     <%= image_tag "/get_image/#{tweet.id}" %>
 <% end %>
 <p><strong>時間</strong>
