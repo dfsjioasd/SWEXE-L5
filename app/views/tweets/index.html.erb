@@ -1,6 +1,6 @@
 <% @tweets.each do |tweet| %>
     <%= tweet.message %>
-    <%= tweet.tdate %>
+    <%= Time.current - tweet.tdate %>
     <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
     <%= link_to '表示', "/tweets/#{tweet.id}" %>
     <%= link_to '編集', "/tweets/edit/#{tweet.id}" %>
