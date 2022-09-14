@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
   def create
     if params[:tweet][:file] == none
       redirect_to '/'
-      break
+      return
     end
     @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
     if @tweets.save
