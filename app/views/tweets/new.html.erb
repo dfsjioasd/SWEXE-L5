@@ -1,5 +1,5 @@
 <%= form_for @tweets , url: {action: :create} do |f| %>
-    <%= f.label :title, 'メッセージ' %>
-    <%= f.text_field :title %>
+    <%= f.label :message, 'メッセージ' %>
+    <%= f.text_field :message %>
     <%= f.submit '決定' %>
 <% end %>
