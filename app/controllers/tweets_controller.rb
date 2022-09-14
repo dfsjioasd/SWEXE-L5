@@ -29,8 +29,7 @@ class TweetsController < ApplicationController
   
   def update
     tweets = Tweet.find(params[:id])
-    time = Tweet.find(params[:id][:tdate])
-    tweets.update(message: params[:tweet][:message], tdate: time)
+    tweets.update(message: params[:tweet][:message], tdate: tweets.tdate)
     redirect_to '/'
   end
 end
