@@ -1,7 +1,7 @@
-<% if tweets.errors.present? %>
+<% if @tweets.errors.present? %>
 <h3>エラーがあります。</h3>
 <ul>
-    <% tweets.errors.full_messages.each do |msg| %>
+    <% @tweets.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
      <% end %>
 </ul>
