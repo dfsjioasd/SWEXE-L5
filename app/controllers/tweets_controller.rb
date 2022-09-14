@@ -8,6 +8,10 @@ class TweetsController < ApplicationController
   end
   
   def create
+    if params[:tweet][:file] == none
+      redirect_to '/'
+      break
+    end
     @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
     if @tweets.save
       flash[:notice] = "ツイートしました"
