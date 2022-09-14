@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
   end
   
   def create
-    @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current)
+    @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: params[:image][:file].read)
     if @tweets.save
       flash[:notice] = "ツイートしました"
       redirect_to '/'
@@ -33,7 +33,12 @@ class TweetsController < ApplicationController
   
   def update
     tweets = Tweet.find(params[:id])
-    tweets.update(message: params[:tweet][:message], tdate: tweets.tdate)
+    tweets.update(message: params[:tweet][:message], tdate: tweets.tdate, file: params[:image][:file].read)
     redirect_to '/'
+  end
+  
+  def get_image
+    image = Tweet.find(params[:id])
+    send_data image.file, disposition: :inline, type:'image/png'
   end
 end

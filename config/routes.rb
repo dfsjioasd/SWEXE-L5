@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get 'tweets/:id', to: 'tweets#show'
   get 'tweets/edit/:id', to: 'tweets#edit'
   patch 'tweets/:id', to: 'tweets#update'
+  get 'get_image/:id', to: 'tweets#get_image'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

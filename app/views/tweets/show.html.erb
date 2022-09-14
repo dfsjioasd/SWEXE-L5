@@ -1,6 +1,6 @@
 <p><strong>内容</strong>
 <%= @tweets.message %></p>
-
+<%= image_tag "/get_image/#{@tweets.id}" %>
 <p><strong>時間</strong>
 <%= ((Time.current - @tweets.tdate)/60).floor %>分前
 </p>
