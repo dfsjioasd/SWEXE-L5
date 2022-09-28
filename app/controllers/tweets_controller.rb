@@ -15,16 +15,16 @@ class TweetsController < ApplicationController
     end
     if @tweets.save
       flash[:notice] = "ツイートしました"
-      redirect_to '/'
+      redirect_to root_path
     else
-      render 'new'
+      render tweets_new_path
     end
   end
   
   def destroy
     tweets = Tweet.find(params[:id])
     tweets.destroy
-    redirect_to '/'
+    redirect_to root_path
   end
   
   def show
@@ -45,7 +45,7 @@ class TweetsController < ApplicationController
       end
     else
       if @tweets.update(message: params[:tweet][:message], tdate: @tweets.tdate, file: params[:tweet][:file].read)
-        redirect_to '/'
+        redirect_to root_path
       else
         render 'edit'
       end
