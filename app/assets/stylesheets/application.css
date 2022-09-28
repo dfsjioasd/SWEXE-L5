@@ -17,4 +17,4 @@
 #header {width:auto; float: right; margin: auto;}
 #sidebar {width:800px; float: left; margin: auto;}
 #footer {width:400px; clear: left; }
-#content {width:auto; float: right;}
+#content {width:auto; float: right; bottom: 0; right: 0;}
