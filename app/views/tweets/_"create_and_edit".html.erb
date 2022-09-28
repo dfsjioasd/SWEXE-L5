@@ -1,9 +1,9 @@
-<% if error.present? %>
+<% if flash[:error].present? %>
 <h3>エラーがあります。</h3>
 <ul>
-    <% error.each do |msg| %>
+    <% flash[:error].each do |msg| %>
       <li><%= msg %></li>
-     <% end %>
+    <% end %>
 </ul>
 <% end %>
 <%= form_for @tweets , url: {action: actionname } do |f| %>
