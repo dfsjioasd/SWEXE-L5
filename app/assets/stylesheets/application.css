@@ -15,5 +15,5 @@
  */
 #header {}
 #sidebar {width:400px; float: left;}
-#footer {}
+#footer {width:400px; float: left;}
 #content {width:800px; float: right;}
