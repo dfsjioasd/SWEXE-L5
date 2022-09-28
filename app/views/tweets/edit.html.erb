@@ -1,10 +1,1 @@
-<% if params[:errors].errors.present? %>
-<h3>エラーがあります。</h3>
-<ul>
-    <% params[:errors].errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-     <% end %>
-</ul>
-<% end %>
-<%= @tweets = params[:errors] %>
 <%= render "create", error: @tweets, actionname: :update %>

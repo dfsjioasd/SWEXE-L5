@@ -1,4 +1,11 @@
-
+<% if error.errors.present? %>
+<h3>エラーがあります。</h3>
+<ul>
+    <% error.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+     <% end %>
+</ul>
+<% end %>
 <%= form_for @tweets , url: {action: actionname } do |f| %>
     <%= f.label :message, 'メッセージ' %>
     <%= f.text_field :message %>
