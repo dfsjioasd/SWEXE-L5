@@ -36,16 +36,19 @@ class TweetsController < ApplicationController
     @tweets = Tweet.find(params[:id])
   end
   
+  def ifupdate(message, tdate, file)
+    if @tweets.update(message: message, tdate: tdate, file: file)
+        flash[:notice] = "更新しました"
+        redirect_to root_path
+    else
+        flash[:error] = @tweets.errors.full_messages
+        redirect_to edit_tweet_path
+    end
+  end
   def update
     @tweets = Tweet.find(params[:id])
     if params[:tweet][:file] == nil
-      if @tweets.update(message: params[:tweet][:message], tdate: @tweets.tdate, file: nil)
-        flash[:notice] = "更新しました"
-        redirect_to root_path
-      else
-        flash[:error] = @tweets.errors.full_messages
-        redirect_to edit_tweet_path
-      end
+      ifupdate(params[:tweet][:message], @tweets.tdate, nil)
     else
       if @tweets.update(message: params[:tweet][:message], tdate: @tweets.tdate, file: params[:tweet][:file].read)
         flash[:notice] = "更新しました"
