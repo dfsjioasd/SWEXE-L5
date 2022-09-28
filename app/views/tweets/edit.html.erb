@@ -1,11 +1,11 @@
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end %><br>
+<% if @tweets.errors.present? %>
+<h3>エラーがあります。</h3>
+<ul>
+    <% @tweets.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+     <% end %>
+</ul>
 <% end %>
 <%= form_for @tweets , url: {action: :update} do |f| %>
-    <%= f.label :message, 'メッセージ' %>
-    <%= f.text_field :message %>
-    <p><%= f.label :file, 'ファイル' %>
-    <%= f.file_field :file%></p>
-    <%= f.submit '決定' %>
+    <%= render "create" %>
 <% end %>
