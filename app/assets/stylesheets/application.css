@@ -16,4 +16,4 @@
 #header {}
 #sidebar {width:400px; float: left;}
 #footer {width:400px; float: left;}
-#content {width:400px; float: right; display: flex;}
+#content {width:400px; display: flex;}
