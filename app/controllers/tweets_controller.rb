@@ -45,12 +45,13 @@ class TweetsController < ApplicationController
         redirect_to edit_tweet_path
     end
   end
+  
   def update
     @tweets = Tweet.find(params[:id])
     if params[:tweet][:file] == nil
       ifupdate(params[:tweet][:message], @tweets.tdate, nil)
     else
-    ifupdate(params[:tweet][:message], @tweets.tdate, params[:tweet][:file].read)
+      ifupdate(params[:tweet][:message], @tweets.tdate, params[:tweet][:file].read)
     end
   end
   
