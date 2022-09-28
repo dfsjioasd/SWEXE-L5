@@ -1,7 +1,7 @@
-<% if error.errors.present? %>
+<% if error.present? %>
 <h3>エラーがあります。</h3>
 <ul>
-    <% error.errors.full_messages.each do |msg| %>
+    <% error.full_messages.each do |msg| %>
       <li><%= msg %></li>
      <% end %>
 </ul>
