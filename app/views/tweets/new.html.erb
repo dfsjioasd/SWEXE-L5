@@ -6,10 +6,4 @@
      <% end %>
 </ul>
 <% end %>
-<%= form_for @tweets , url: {action: :create} do |f| %>
-    <%= f.label :message, 'メッセージ' %>
-    <%= f.text_field :message %>
-    <p><%= f.label :file, 'ファイル' %>
-    <%= f.file_field :file%></p>
-    <%= f.submit '決定' %>
-<% end %>
+<%= render "sidebar", actionname: :create %>
