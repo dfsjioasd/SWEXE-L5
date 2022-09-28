@@ -1,5 +1,4 @@
-a = ":create"
-<%= form_for @tweets , url: {action: a } do |f| %>
+<%= form_for @tweets , url: {action: actionname } do |f| %>
     <%= f.label :message, 'メッセージ' %>
     <%= f.text_field :message %>
     <p><%= f.label :file, 'ファイル' %>
