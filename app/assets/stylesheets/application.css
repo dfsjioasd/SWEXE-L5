@@ -14,7 +14,7 @@
  *= require_self
  */
 #container {position: relative;}
-#header {width:300px; float: right; }
+#header {width:400px; float: right; }
 #sidebar {width:400px; float: left; }
 #footer {width:400px; clear: left; }
 #content {width:400px; float: right;}
