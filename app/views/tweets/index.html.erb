@@ -9,6 +9,6 @@
     <%= ((Time.current - tweet.tdate)/60).floor %>分前
     <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
     <%= link_to '表示', "/tweets/#{tweet.id}" %>
-    <%= link_to '編集', "/tweets/edit/#{tweet.id}" %><br>
+    <%= link_to '編集', "/tweets/#{tweet.id}/edit" %><br>
 <% end %>
 <p><%= link_to '新規追加', '/tweets/new' %></p>
