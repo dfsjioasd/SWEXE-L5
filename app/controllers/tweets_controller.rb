@@ -50,13 +50,7 @@ class TweetsController < ApplicationController
     if params[:tweet][:file] == nil
       ifupdate(params[:tweet][:message], @tweets.tdate, nil)
     else
-      if @tweets.update(message: params[:tweet][:message], tdate: @tweets.tdate, file: params[:tweet][:file].read)
-        flash[:notice] = "更新しました"
-        redirect_to root_path
-      else
-        flash[:error] = @tweets.errors.full_messages
-        redirect_to edit_tweet_path
-      end
+    ifupdate(params[:tweet][:message], @tweets.tdate, params[:tweet][:file].read)
     end
   end
   
