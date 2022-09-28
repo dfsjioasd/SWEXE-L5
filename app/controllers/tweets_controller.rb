@@ -41,7 +41,7 @@ class TweetsController < ApplicationController
       if @tweets.update(message: params[:tweet][:message], tdate: @tweets.tdate, file: nil)
         redirect_to root_path
       else
-        render 'edit'
+        render tweets_path
       end
     else
       if @tweets.update(message: params[:tweet][:message], tdate: @tweets.tdate, file: params[:tweet][:file].read)
