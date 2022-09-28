@@ -16,5 +16,5 @@
 #container {position: relative;}
 #sidebar {width:100px; float: left; }
 #footer {width:100px; clear: left; }
-#header {width:400px; float: right; margin-right: 400px}
-#content {width:400px; float: right;margin-right: 400px}
+#header {width:400px; float: right; margin-left: 400px}
+#content {width:400px; float: right;margin-left: 400px}
