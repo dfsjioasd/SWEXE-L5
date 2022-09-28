@@ -39,7 +39,7 @@ class TweetsController < ApplicationController
     @tweets = Tweet.find(params[:id])
     if params[:tweet][:file] == nil
       if @tweets.update(message: params[:tweet][:message], tdate: @tweets.tdate, file: nil)
-        redirect_to '/'
+        redirect_to tweets_new_path
       else
         render 'edit'
       end
