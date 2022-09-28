@@ -1,1 +1,2 @@
-<%= render "create", error: params[:errors], actionname: :create %>
+@tweets = params[:errors]
+<%= render "create", error: @tweets, actionname: :create %>
