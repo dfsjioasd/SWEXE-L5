@@ -17,6 +17,6 @@
 #sidebar {width:100px; float: left; }
 #footer {width:100px; clear: left; }
 #sidebar p:hover {background-color: #555; color: white;}
-#footer p:hover {background-color: #555; color: white;}
+#footer p:hover {background-color: #555; color: blue;}
 #header {width:500px; float: right; }
 #content {width:500px; float: right;margin-left: 200px; }
