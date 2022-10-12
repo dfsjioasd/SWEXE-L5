@@ -25,4 +25,7 @@ class UsersController < ApplicationController
         render "error"
     end
   end
+  def show
+    render login
+  end
 end

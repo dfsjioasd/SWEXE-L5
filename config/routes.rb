@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'tweets#main'
   resources :tweets
-  #resources :users
+  resources :users
   resources :like
   get 'get_image/:id', to: 'tweets#get_image'
   post 'users/login'
