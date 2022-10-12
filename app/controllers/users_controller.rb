@@ -26,6 +26,6 @@ class UsersController < ApplicationController
     end
   end
   def show
-    render login
+    render "login"
   end
 end
