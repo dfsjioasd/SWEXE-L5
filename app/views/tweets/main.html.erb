@@ -2,6 +2,7 @@
   <%= flash[:notice] %><br>
 <% end %>
 <% @tweets.each do |tweet| %>
+    <% session[:login_uid] %>
     <%= tweet.message %><br>
     <% if tweet.file != nil %>
       <%= image_tag "/get_image/#{tweet.id}" %>
@@ -9,7 +10,7 @@
     <%= ((Time.current - tweet.tdate)/60).floor %>分前
     <%= link_to '表示', "/tweets/#{tweet.id}" %>
     <% if session[:login_uid] %>
-    いいねきのう
+    <%= link_to 'いいね', "/likes/new" %>
     <% end %>
     <br>
 <% end %>
