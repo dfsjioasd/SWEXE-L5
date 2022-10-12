@@ -19,12 +19,13 @@ class UsersController < ApplicationController
             session[:login_uid] = params[:uid]
             redirect_to root_path
         else
-            render "error"
+            render users_login_path
         end
     else
-        render "error"
+        render users_login_path
     end
   end
+  
   def show
     render "login"
   end
