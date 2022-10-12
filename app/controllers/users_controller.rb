@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    if User.find_by(params[:user][:uid])
+    if User.find_by(uid: params[:user][:uid])
       render new_user_path
       return
     end
