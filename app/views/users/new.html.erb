@@ -6,10 +6,10 @@
     <% end %>
 </ul>
 <% end %>
-<%= form_for @tweets , url: {action: :create } do |f| %>
-    <%= f.label :message, 'メッセージ' %>
-    <%= f.text_field :message %>
-    <p><%= f.label :file, 'ファイル' %>
-    <%= f.file_field :file%></p>
+<%= form_for @users , url: {action: :create } do |f| %>
+    <%= f.label :uid, 'ユーザー名' %>
+    <%= f.text_field :uid %>
+    <p><%= f.label :pass, 'パスワード' %>
+    <%= f.file_field :pass%></p>
     <%= f.submit '決定' %>
 <% end %>
