@@ -2,7 +2,7 @@
   <%= flash[:notice] %><br>
 <% end %>
 <% @tweets.each do |tweet| %>
-
+    <%= tweet.User.uid %><br>
     <%= tweet.message %><br>
     <% if tweet.file != nil %>
       <%= image_tag "/get_image/#{tweet.id}" %>
