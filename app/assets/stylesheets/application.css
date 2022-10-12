@@ -15,7 +15,7 @@
  */
 #container {width: 1000px; margin: 0 auto;}
 #sidebar {width:100px; float: left; }
-#footer {width:100px; clear: left; }
+#footer {width:120px; clear: left; }
 #sidebar p:hover {background-color: #555; color: white;}
 #footer p:hover {background-color: #555; color: white;}
 #header {width:500px; float: right; }
