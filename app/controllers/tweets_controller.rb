@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
   def create
     if params[:tweet][:file] == nil
       @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: nil)
-      @tweets.user = User.find_by(uid: session[:login_uid])
+      @tweets.User = User.find_by(uid: session[:login_uid])
     else
       @tweets = Tweet.new(message: params[:tweet][:message], tdate: Time.current, file: params[:tweet][:file].read)
       @tweets.user = User.find_by(uid: session[:login_uid])
