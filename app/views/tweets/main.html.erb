@@ -8,5 +8,7 @@
     <% end %>
     <%= ((Time.current - tweet.tdate)/60).floor %>分前
     <%= link_to '表示', "/tweets/#{tweet.id}" %>
-    <%= link_to '編集', "/tweets/#{tweet.id}/edit" %><br>
+    <% if session[:login_uid] %>
+    <% end %>
+    <br>
 <% end %>
