@@ -13,8 +13,6 @@ class UsersController < ApplicationController
       render new_tweet_path
     end
   end
-  def show
-  end
   def login
     if a = User.find_by(uid: params[:uid])
         if BCrypt::Password.new(a.pass) == params[:pass]
