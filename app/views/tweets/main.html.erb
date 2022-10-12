@@ -1,6 +1,21 @@
 <% if flash[:notice] %>
   <%= flash[:notice] %><br>
 <% end %>
+<% if flash[:error].present? %>
+<h3>エラーがあります。</h3>
+<ul>
+    <% flash[:error].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
+<%= form_for @tweets , url: {action: :create } do |f| %>
+    <%= f.label :message, 'メッセージ' %>
+    <%= f.text_field :message %>
+    <p><%= f.label :file, 'ファイル' %>
+    <%= f.file_field :file%></p>
+    <%= f.submit '決定' %>
+<% end %>
 <% @tweets.each do |tweet| %>
     <%= tweet.message %><br>
     <% if tweet.file != nil %>
