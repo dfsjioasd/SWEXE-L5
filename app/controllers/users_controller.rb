@@ -4,15 +4,20 @@ class UsersController < ApplicationController
   end
   
   def create
+    if User.find_by(params[:user][:uid])
+      render new_user_path
+      return
+    end
     @user = User.new(uid: params[:user][:uid], pass: BCrypt::Password.create(params[:user][:pass]))
     if @user.save
       flash[:notice] = "ツイートしました"
       redirect_to root_path
     else
       flash[:error] = @user.errors.full_messages
-      render new_tweet_path
+      render new_user_path
     end
   end
+  
   def login
     if a = User.find_by(uid: params[:uid])
         if BCrypt::Password.new(a.pass) == params[:pass]

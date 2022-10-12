@@ -1,1 +1,5 @@
-ツイート　　　ツイートと返信　　　メディア　　　いいね　　　<%= link_to 'ログイン', '/users/login' %>
+ツイート　　　ツイートと返信　　　メディア　　　いいね　　　
+<% if session[:login_uid] %>
+<% else %>
+  <%= link_to 'ログイン', '/users/login' %>
+<% end %>
