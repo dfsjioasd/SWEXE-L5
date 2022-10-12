@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :like
   get 'get_image/:id', to: 'tweets#get_image'
   post 'users/login'
-  get "users/in"
+  get "users/in", to: "user#in"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
