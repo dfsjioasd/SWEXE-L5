@@ -11,8 +11,8 @@
     <%= link_to '表示', "/tweets/#{tweet.id}" %>
     <% if session[:login_uid] %>
     <%= link_to 'いいね', new_like_path(tweet_id: tweet.id), method: :post %>
-    <%= Like.count(tweet_id: tweet.id) %>
     <%= link_to 'いいね削除', "/likes/destroy", method: :delete %>
+    <%= Like.count(tweet_id: tweet.id) %>
     <% end %>
     <br>
 <% end %>
