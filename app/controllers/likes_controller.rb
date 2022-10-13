@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-    def create
+    def new
         tweet = Tweet.find(params[:tweet_id])
         user = User.find_by(uid: session[:login_uid])
         user.like_tweets << tweet
