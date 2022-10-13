@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
   
   def login
+    @users = User.new
     if a = User.find_by(uid: params[:uid])
         if BCrypt::Password.new(a.pass) == params[:pass]
             session[:login_uid] = params[:uid]
