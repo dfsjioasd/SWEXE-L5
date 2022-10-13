@@ -4,7 +4,7 @@ class CreateTweets < ActiveRecord::Migration[5.2]
       t.string :message
       t.datetime :tdate
       t.binary :file
-
+      t.integer :user_id
       t.timestamps
     end
   end

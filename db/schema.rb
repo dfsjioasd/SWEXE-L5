@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2022_10_12_072831) do
     t.string "message"
     t.datetime "tdate"
     t.binary "file"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
