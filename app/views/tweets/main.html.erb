@@ -10,9 +10,9 @@
     <%= ((Time.current - tweet.tdate)/60).floor %>分前
     <%= link_to '表示', "/tweets/#{tweet.id}" %>
     <% if session[:login_uid] %>
-    <%= link_to 'いいね', like_path(tweet_id: tweet.id), method: :post %>
+    <%= link_to 'いいね', new_like_path(tweet_id: tweet.id), method: :post %>
     <%= Like.count(tweet_id: tweet.id) %>
-    <%= link_to 'いいね削除', like_path(tweet), method: :delete %>
+    <%= link_to 'いいね削除', "/likes/destroy", method: :delete %>
     <% end %>
     <br>
 <% end %>
