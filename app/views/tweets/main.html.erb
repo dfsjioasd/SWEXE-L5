@@ -12,7 +12,7 @@
     <% if session[:login_uid] %>
     <%= link_to 'いいね', new_like_path(tweet_id: tweet.id), method: :post %>
     <%= link_to 'いいね削除', "/likes/destroy", method: :delete %>
-    <%= Like.count(tweet_id: tweet.id) %>
+    <%= Like.where(tweet_id: tweet.id).count %>
     <% end %>
     <br>
 <% end %>
