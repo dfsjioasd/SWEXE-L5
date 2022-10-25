@@ -3,7 +3,6 @@ class Tweet < ApplicationRecord
     validates :message, length: { maximum: 140 }
     has_many :likes, dependent: :destroy
     has_many :like_users, through: :likes, source: :user
-    belongs_to :user
     
     def like(user)
         likes.create(user_id: user.id)
